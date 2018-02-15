@@ -1,0 +1,327 @@
+
+
+
+
+Carry flag - Wikipedia
+document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );
+(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Carry_flag","wgTitle":"Carry flag","wgCurRevisionId":822511723,"wgRevisionId":822511723,"wgArticleId":5503176,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles needing additional references from July 2015","All articles needing additional references","Computer arithmetic"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Carry_flag","wgRelevantArticleId":5503176,"wgRequestId":"WoXZhgpAICAAADkqbBYAAAAO","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Carry_bit","wgFlaggedRevsParams":{"tags":{}},"wgStableRevisionId":null,"wgWikiEditorEnabledModules":[],"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsShouldSendModuleToUser":true,"wgPopupsConflictsWithNavPopupGadget":false,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"en","wgMFExpandAllSectionsUserOption":false,"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/Carry_flag","wgWikibaseItemId":"Q334167","wgScoreNoteLanguages":{"arabic":"العربية","catalan":"català","deutsch":"Deutsch","english":"English","espanol":"español","italiano":"italiano","nederlands":"Nederlands","norsk":"norsk","portugues":"português","suomi":"suomi","svenska":"svenska","vlaams":"West-Vlams"},"wgScoreDefaultNoteLanguage":"nederlands","wgCentralAuthMobileDomain":false,"wgCodeMirrorEnabled":false,"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":true});mw.loader.state({"ext.gadget.charinsert-styles":"ready","ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready"});mw.loader.implement("user.tokens@1dqfd7l",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});mw.loader.load(["mediawiki.action.view.redirect","ext.cite.a11y","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.watchlist-notice","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.interface","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"]);});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+Carry flag 
+From Wikipedia, the free encyclopedia   (Redirected from Carry bit)
+
+					Jump to:					navigation, 					search
+
+In computer processors the carry flag (usually indicated as the C flag) is a single bit in a system status (flag) register used to indicate when an arithmetic carry or borrow has been generated out of the most significant ALU bit position. The carry flag enables numbers larger than a single ALU width to be added/subtracted by carrying (adding) a binary digit from a partial addition/subtraction to the least significant bit position of a more significant word. It is also used to extend bit shifts and rotates in a similar manner on many processors (sometimes done via a dedicated X flag). For subtractive operations, two (opposite) conventions are employed as most machines set the carry flag on borrow while some machines (such as the 6502 and the PIC) instead reset the carry flag on borrow (and vice versa).
+
+
+
+Contents
+
+
+1 Uses
+2 Carry flag vs. borrow flag
+3 See also
+4 References
+5 External links
+
+
+
+Uses[edit]
+The carry flag is affected by the result of most arithmetic (and typically several bit wise) instructions and is also used as an input to many of them. Several of these instructions have two forms which either read or ignore the carry. In assembly languages these instructions are represented by mnemonics such as ADD/SUB, ADC/SBC (ADD/SUB including carry), SHL/SHR (bit shifts), ROL/ROR (bit rotates), RCR/RCL (rotate through carry), and so on.[1] The use of the carry flag in this manner enables multi-word add, subtract, shift, and rotate operations.
+An example is what happens if one were to add 255 and 255 using 8-bit registers. The result should be 510 which is 1_1111_1110 in binary, requiring 9 bits. The 8 least significant bits always stored in the register would be 1111_1110 binary (254 decimal) but since there is carry out of bit 7 (the eight bit), the carry is set, indicating that the result needs 9 bits. The valid 9-bit result is the concatenation of the carry flag with the result. Note that in an 8-bit two's complement interpretation, this operation is −1 + −1 and yields the correct result of −2, with no overflow, even if the carry is ignored.
+Another example may be an 8-bit register with the bit pattern 0101_0101 and the carry flag set; if we execute a rotate left through carry instruction, the result would be 1010_1011 with the carry flag cleared because the most significant bit (bit 7) was rotated into the carry while the carry was rotated into the least significant bit (bit 0).
+The early microprocessors Intel 4004 and Intel 8008 had specific instructions to set as well as reset the carry flag explicitly. However, the later Intel 8080 (and Z80) did not include an explicit reset carry opcode as this could be done equally fast via one of the bitwise AND, OR or XOR instructions (which do not use the carry flag).
+The carry flag is also often used following comparison instructions, which are typically implemented by subtractive operations, to allow a decision to be made about which of the two compared values is lower than (or greater or equal to) the other. Branch instructions which examine the carry flag are often represented by mnemonics such as BCC and BCS to branch if the carry is clear, or branch if the carry is set respectively. When used in this way the carry flag provides a mechanism for comparing the values as unsigned integers. This is in contrast to the overflow flag which provides a mechanism for comparing the values as signed integer values.
+Carry flag vs. borrow flag[edit]
+
+
+
+
+
+
+This section needs additional citations for verification. Relevant discussion may be found on the talk page. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed. (July 2015) (Learn how and when to remove this template message)
+
+
+
+While the carry flag is well-defined for addition, there are two ways in common use to use the carry flag for subtraction operations.
+The first uses the bit as a borrow flag, setting it if a<b when computing a−b, and a borrow must be performed. If a≥b, the bit is cleared. A subtract with borrow (SBB) instruction will compute a−b−C = a−(b+C), while a subtract without borrow (SUB) acts as if the borrow bit were clear. The 8080, Z80, 8051, x86[1] and 68k families (among others) use a borrow bit.
+The second takes advantage of the identity that −x = not(x)+1 and computes a−b as a+not(b)+1. The carry flag is set according to this addition, and subtract with carry computes a+not(b)+C, while subtract without carry acts as if the carry bit were set. The result is that the carry bit is set if a≥b, and clear if a<b. The System/360,[2] 6502, MSP430, ARM and PowerPC processors use this convention. The 6502 is a particularly well-known example because it does not have a subtract without carry operation, so programmers must ensure that the carry flag is set before every subtract operation where a borrow is not required.
+
+Summary of different uses of carry flag in subtraction
+
+Carry or
+borrow bit
+Subtract without
+carry/borrow
+Subtract
+with borrow
+Subtract
+with carry
+
+
+C = 0
+a − b
+= a + not(b) + 1
+a − b − 0
+= a + not(b) + 1
+a + not(b) + 0
+= a − b − 1
+
+
+C = 1
+a − b − 1
+= a + not(b) + 0
+a + not(b) + 1
+= a − b − 0
+
+
+Most commonly, the first alternative is referred to as a "subtract with borrow", while the second is called a "subtract with carry". However, there are exceptions in both directions; the VAX, NS320xx, and Atmel AVR architectures use the borrow bit convention, but call their a−b−C operation "subtract with carry" (SBWC, SUBC and SBC). The PA-RISC and PICmicro architectures use the carry bit convention, but call their a+not(b)+C operation "subtract with borrow" (SUBB and SUBWFB).
+The ST6/ST7 8-bit microcontrollers are perhaps the most confusing of all. Although they do not any sort of "subtract with carry" instruction, they do have a carry bit which is set by a subtract instruction, and the convention depends on the processor model. The ST60 processor uses the "carry" convention, while the ST62 and ST63 processors use the "borrow" convention.[3]
+See also[edit]
+
+Binary arithmetic
+Half-carry flag
+Status register
+
+References[edit]
+
+
+
+^ a b "Intel Architecture Software Developer's Manual, Volume 2: Instruction Set Reference Manual" (PDF). Retrieved 2007-10-25. 
+^ IBM System/360 Principles of Operation (PDF). p. 28. IBM Form A22-6821-0. 
+^ "ST6 Family Programming Manual" (PDF). Revision 2.0. STMicroelectronics. October 2004. p. 42. Retrieved 2017-02-28. 
+
+
+
+External links[edit]
+
+Carry Flag and Overflow Flag in binary arithmetic
+Carry Bit: How does it work?
+
+
+
+
+
+
+
+v
+t
+e
+
+
+x86 assembly topics
+
+
+
+Topics
+
+
+
+Assembly language
+Comparison of assemblers
+Disassembler
+Instruction set
+Low-level programming language
+Machine code
+Microassembler
+x86 assembly language
+
+
+
+
+
+Assemblers
+
+
+
+A86/A386
+Flat Assembler (FASM)
+GNU Assembler (GAS)
+High Level Assembly (HLA)
+Microsoft Macro Assembler (MASM)
+Netwide Assembler (NASM)
+Turbo Assembler (TASM)
+Open Watcom Assembler (WASM)
+Yasm
+
+
+
+
+
+Programming
+issues
+
+
+
+Call stack
+Flags
+
+Carry flag
+Direction flag
+Interrupt flag
+Overflow flag
+Zero flag
+
+
+Opcode
+Program counter
+Processor register
+Calling conventions
+Instruction listings
+Registers
+
+
+
+
+
+
+
+
+
+
+ 
+						Retrieved from "https://en.wikipedia.org/w/index.php?title=Carry_flag&oldid=822511723"					
+Categories: Computer arithmeticHidden categories: Articles needing additional references from July 2015All articles needing additional references 
+
+
+
+Navigation menu
+
+
+Personal tools
+
+Not logged inTalkContributionsCreate accountLog in 
+
+
+
+Namespaces
+
+ArticleTalk 
+
+
+
+Variants
+
+
+
+
+
+
+
+
+
+Views
+
+ReadEditView history 
+
+
+More
+
+
+
+
+
+
+
+Search
+
+
+
+ 
+
+
+
+
+
+
+
+Navigation
+
+
+Main pageContentsFeatured contentCurrent eventsRandom articleDonate to WikipediaWikipedia store 
+
+
+
+Interaction
+
+
+HelpAbout WikipediaCommunity portalRecent changesContact page 
+
+
+
+Tools
+
+
+What links hereRelated changesUpload fileSpecial pagesPermanent linkPage informationWikidata itemCite this page 
+
+
+
+Print/export
+
+
+Create a bookDownload as PDFPrintable version 
+
+
+
+Languages
+
+
+БългарскиČeštinaDeutschFrançaisРусскийSvenskaУкраїнська 
+Edit links 
+
+
+
+
+
+ This page was last edited on 26 January 2018, at 20:12.
+Text is available under the Creative Commons Attribution-ShareAlike License;
+additional terms may apply.  By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+
+
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Developers
+Cookie statement
+Mobile view
+
+
+
+ 
+
+ 
+
+
+
+(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.128","walltime":"0.180","ppvisitednodes":{"value":357,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":19879,"limit":2097152},"templateargumentsize":{"value":240,"limit":2097152},"expansiondepth":{"value":9,"limit":40},"expensivefunctioncount":{"value":2,"limit":500},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  151.063      1 -total"," 47.06%   71.097      1 Template:Reflist"," 41.75%   63.070      1 Template:Refimprove_section"," 31.63%   47.780      2 Template:Cite_web"," 28.57%   43.158      1 Template:Refimprove"," 25.50%   38.515      1 Template:Ambox","  9.57%   14.459      1 Template:X86_assembly_topics","  7.59%   11.467      1 Template:Navbox","  4.24%    6.406      1 Template:Cite_book","  1.49%    2.257      1 Template:Main_other"]},"scribunto":{"limitreport-timeusage":{"value":"0.062","limit":"10.000"},"limitreport-memusage":{"value":2460615,"limit":52428800}},"cachereport":{"origin":"mw1262","timestamp":"20180211013317","ttl":1900800,"transientcontent":false}}});});(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":65,"wgHostname":"mw1330"});});
+
+

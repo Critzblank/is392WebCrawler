@@ -1,0 +1,832 @@
+
+
+
+
+DEC Prism - Wikipedia
+document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );
+(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"DEC_Prism","wgTitle":"DEC Prism","wgCurRevisionId":771117402,"wgRevisionId":771117402,"wgArticleId":493744,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["All articles lacking reliable references","Articles lacking reliable references from August 2012","DEC microprocessors","Instruction set architectures","Information technology projects"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"DEC_Prism","wgRelevantArticleId":493744,"wgRequestId":"WoOv5QpAMEsAAEBQdjYAAAAG","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{}},"wgStableRevisionId":null,"wgWikiEditorEnabledModules":[],"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsShouldSendModuleToUser":true,"wgPopupsConflictsWithNavPopupGadget":false,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"en","wgMFExpandAllSectionsUserOption":false,"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgWikibaseItemId":"Q3700326","wgScoreNoteLanguages":{"arabic":"العربية","catalan":"català","deutsch":"Deutsch","english":"English","espanol":"español","italiano":"italiano","nederlands":"Nederlands","norsk":"norsk","portugues":"português","suomi":"suomi","svenska":"svenska","vlaams":"West-Vlams"},"wgScoreDefaultNoteLanguage":"nederlands","wgCentralAuthMobileDomain":false,"wgCodeMirrorEnabled":false,"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":true});mw.loader.state({"ext.gadget.charinsert-styles":"ready","ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready"});mw.loader.implement("user.tokens@1dqfd7l",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});mw.loader.load(["ext.cite.a11y","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.watchlist-notice","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.interface","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"]);});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+DEC Prism 
+From Wikipedia, the free encyclopedia 
+
+					Jump to:					navigation, 					search
+
+Not to be confused with Apollo PRISM or m88k.
+Prism is a 32-bit RISC instruction set architecture (ISA) developed by Digital Equipment Corporation (DEC). It was the final outcome of a number of DEC research projects from the 1982–85 time-frame, and was at the point of delivering silicon in 1988 when the management canceled the project. The next year work on the Alpha started, based heavily on the Prism design.
+
+
+
+Contents
+
+
+1 Background
+2 Prism
+3 Friction and cancellation
+4 References
+5 Further reading
+
+
+
+Background[edit]
+In the period from 1982 to 1985, no fewer than four attempts were made to create a RISC chip at different DEC divisions. Titan from DEC's Western Research Laboratory (WRL) in Palo Alto, California was a high-performance ECL based design that started in 1982, intended to run Unix. SAFE (Streamlined Architecture for Fast Execution) was a 64-bit design that started the same year, designed by Alan Kotok (of Spacewar! fame) and Dave Orbits and intended to run VMS. HR-32 (Hudson, RISC, 32-bit) started in 1984 by Rich Witek and Dan Dobberpuhl at the Hudson fab, intended to be used as a co-processor in VAX machine. The same year Dave Cutler started the CASCADE project at DECwest in Bellevue, Washington.[1]
+Prism[edit]
+Eventually Cutler was asked to define a single RISC project in 1985, selecting Rich Witek as the chief architect. The design started as a 64-bit chip, but was later "downsized" to 32-bits. In August 1985 the first draft of a high-level design was delivered, and work began on the detailed design. The PRISM specification was developed over a period of many months by a five-person team: Dave Cutler, Dave Orbits, Rich Witek, Dileep Bhandarkar, and Wayne Cardoza. This work was 98% done 1985–86 and was heavily supported by simulations by Pete Benoit on a large VAXcluster.[1]
+In terms of integer operations, the PRISM architecture was similar to the MIPS designs. Of the 32-bit instructions, the 6 highest and 5 lowest bits were the instruction, leaving the rest of the word for encoding either a constant or register locations. Sixty-four 32-bit registers were included, as opposed to thirty-two in the MIPS, but usage was otherwise similar. PRISM and MIPS both lack the register windows that were a hallmark of the other major RISC design, Berkeley RISC/SPARC.
+The PRISM design was notable for several aspects of its instruction set. Notably, PRISM included Epicode (extended processor instruction code), which defined a number of "special" instructions intended to offer the operating system a stable ABI across multiple implementations. Epicode was given its own set of 22 32-bit registers to use. A set of vector processing instructions were later added as well, supported by an additional sixteen 64-bit vector registers that could be used in a variety of ways.
+Two versions of the system were planned, DECwest worked on a "high-end" ECL implementation known as Crystal, while the Semiconductor Advanced Development team worked on MicroPRISM, a CMOS version. MicroPRISM was finished first and was sent for test fabrication in April 1988. Additionally, Cutler led development on a new microkernel-based operating system code-named Mica, which was to offer Unix-like and VMS-like "personalities" on top of a common substrate of services.[1]
+Friction and cancellation[edit]
+Throughout the Prism period, DEC was involved in a major debate over the future direction of the company. As newer workstations were introduced, the performance benefit of the VAX was constantly eroded, and the price/performance ratio completely undermined. Different groups within the company debated how to best respond. Some advocated moving the VAX into the high-end, abandoning the low-end to the workstations. Others suggested moving into the workstation market using a commodity processor. Still others suggested re-implementing the VAX on a RISC processor.[1]
+This led to considerable problems with turf wars between the various groups. Competition between the divisions delayed the architecture review, which wasn't closed until 1986. Work on associated support chips, the memory management unit and floating point unit, were later interrupted by yet another debate on whether or not the design should be 32- or 64-bit. The MicroPrism design was not finalized until April 1988.[1]
+Frustrated with the growing number of losses to cheaper faster competitive machines, independently, a small group outside of Central Engineering, focused on workstations and UNIX/Ultrix, entertained the idea of using an off-the-shelf RISC processor to build a new family of workstations. The group carried out due diligence, eventually choosing the MIPS R2000. This group acquired a development machine and prototyped a port of Ultrix to the system. From the initial meetings with MIPS to a prototype machine took only 90 days, with full production able to start by January 1989, resulting in the DECstation 3100 and family. At a meeting reviewing the various projects in July 1988, the company decided to cancel Prism, and continue with the MIPS workstations and high-end VAX products. Dave Cutler left the company soon after.[1]
+Every attempt to produce a faster VAX that could compete with newer workstations eventually failed. The VAX 9000 ran into delays, and by the time it shipped newer Unix workstations had already surpassed it in performance, at a tiny fraction of the cost (or size). Apparently aware of this danger, at the same meeting where Prism was canceled, Ken Olsen started a new project to continue exploring a RISC-based VAX. This indirectly led to the formation of the Alpha project the next year.
+References[edit]
+
+E-mail with Bob Supnik[better source needed]
+Supnik, Bob (24 February 2008). "MicroPrism". The Computer History Simulation Project. 
+Prism documents at bitsavers.org
+
+Further reading[edit]
+
+Bhandarkar, Dileep P. (1995). Alpha Architecture and Implementations. Digital Press.
+Bhandarkar, D. et al. (1990. "High performance issue orientated architecture". Proceedings of Compcon Spring '90, pp. 153–160.
+Conrad, R. et al. (1989). "A 50 MIPS (peak) 32/64 b microprocessor". ISSCC Digest of Technical Papers, pp. 76–77.
+
+
+
+
+
+
+
+v
+t
+e
+
+
+Microprocessors of Digital Equipment Corporation
+
+
+
+PDP-11
+
+
+
+LSI-11
+F-11
+T-11
+J-11
+
+
+
+
+
+VAX
+
+
+
+V-11
+MicroVAX 78032
+CVAX (SOC)
+Rigel (Mariah)
+NVAX
+
+
+
+
+
+Alpha
+
+
+
+Alpha 21064
+(Alpha 21066, Alpha 21068)
+Alpha 21164 (Alpha 21164PC)
+Alpha 21264
+Alpha 21364
+Alpha 21464
+
+
+
+
+
+Other
+
+
+
+MicroPRISM
+StrongARM
+
+
+
+
+
+
+
+
+
+
+
+
+v
+t
+e
+
+
+Reduced instruction set computer (RISC) architectures
+
+
+
+
+
+
+Berkeley RISC
+IBM 801
+Stanford MIPS
+
+
+
+
+
+Active
+
+
+
+Altera Nios II
+Analog Devices Blackfin
+ARC
+ARM
+Atmel AVR
+DLX
+eSi-RISC
+M32R
+LatticeMico8
+LatticeMico32
+Meta
+MIPS
+OpenRISC
+Power
+
+PowerPC
+Cell
+
+
+RISC-V
+S+core
+Sunway
+SPARC
+Renesas SuperH
+Unicore
+Xilinx MicroBlaze
+Xilinx PicoBlaze
+XMOS XCore XS1
+VISC
+Mill
+
+
+
+
+
+Historic
+
+
+
+Alpha
+AMD Am29000
+Apollo PRISM
+Atmel AVR32
+Clipper
+CRISP
+DEC Prism
+Intel i860
+Intel i960
+MIPS-X
+Motorola 88000
+PA-RISC
+ROMP
+
+
+
+
+
+
+
+
+
+
+
+
+v
+t
+e
+
+
+CPU technologies
+
+
+
+Architecture
+
+
+
+Turing machine
+Post–Turing machine
+Universal Turing machine
+Quantum Turing machine
+Belt machine
+Stack machine
+Register machine
+Counter machine
+Pointer machine
+Random access machine
+Random access stored program machine
+Finite-state machine
+Queue automaton
+Von Neumann
+Harvard (modified)
+Dataflow
+TTA
+Cellular
+Artificial neural network
+
+Machine learning
+Deep learning
+Neural processing unit (NPU)
+
+
+Convolutional neural network
+Load/store architecture
+Register memory architecture
+Endianness
+FIFO
+Zero-copy
+NUMA
+HUMA
+HSA
+Mobile computing
+Surface computing
+Wearable computing
+Heterogeneous computing
+Parallel computing
+Concurrent computing
+Distributed computing
+Cloud computing
+Amorphous computing
+Ubiquitous computing
+Fabric computing
+Reconfigurable computing
+Cognitive computing
+Analogous computing
+Mechanical computing
+Hybrid computing
+Digital computing
+DNA computing
+Peptide computing
+Chemical computing
+Organic computing
+Wetware computing
+Quantum computing
+Neuromorphic computing
+Optical computing
+Reversible computing
+Unconventional computing
+Hypercomputation
+Ternary computer
+Symmetric multiprocessing (SMP)
+Asymmetric multiprocessing (AMP)
+Cache hierarchy
+Memory hierarchy
+
+
+
+
+
+ISA types
+
+
+
+ASIP
+CISC
+RISC
+EDGE (TRIPS)
+VLIW (EPIC)
+MISC
+OISC
+NISC
+ZISC
+Comparison
+
+
+
+
+
+ISAs
+
+
+
+x86
+z/Architecture
+ARM
+MIPS
+Power Architecture (PowerPC)
+SPARC
+Mill
+Itanium (IA-64)
+Alpha
+Prism
+SuperH
+V850
+Clipper
+VAX
+Unicore
+PA-RISC
+MicroBlaze
+RISC-V
+
+
+
+
+
+Word size
+
+
+
+1-bit
+2-bit
+4-bit
+8-bit
+9-bit
+10-bit
+12-bit
+15-bit
+16-bit
+18-bit
+22-bit
+24-bit
+25-bit
+26-bit
+27-bit
+31-bit
+32-bit
+33-bit
+34-bit
+36-bit
+39-bit
+40-bit
+48-bit
+50-bit
+60-bit
+64-bit
+128-bit
+256-bit
+512-bit
+Variable
+
+
+
+
+
+Execution
+
+
+
+Instruction pipelining
+
+Bubble
+Operand forwarding
+
+
+Out-of-order execution
+
+Register renaming
+
+
+Speculative execution
+
+Branch predictor
+Memory dependence prediction
+
+
+Hazards
+
+
+
+
+
+Parallel level
+
+
+
+Bit
+
+Bit-serial
+Word
+
+
+Instruction
+Pipelining
+
+Scalar
+Superscalar
+
+
+Task
+
+Thread
+Process
+
+
+Data
+
+Vector
+
+
+Memory
+
+
+
+
+
+Multithreading
+
+
+
+Temporal
+Simultaneous (SMT) (Hyper-threading)
+Speculative (SpMT)
+Preemptive
+Cooperative
+Clustered Multi-Thread (CMT)
+Hardware scout
+
+
+
+
+
+Flynn's taxonomy
+
+
+
+SISD
+SIMD (SWAR)
+SIMT
+MISD
+MIMD
+
+SPMD
+
+
+Addressing mode
+
+
+
+
+
+CPU performance
+
+
+
+Instructions per second (IPS)
+Instructions per clock (IPC)
+Cycles per instruction (CPI)
+Floating-point operations per second (FLOPS)
+Transactions per second (TPS)
+Synaptic Updates Per Second (SUPS)
+Performance per watt
+Orders of magnitude (computing)
+Cache performance measurement and metric
+
+
+
+
+
+Core count
+
+
+
+Single-core processor
+Multi-core processor
+Manycore processor
+
+
+
+
+
+Types
+
+
+
+Central processing unit (CPU)
+GPGPU
+AI accelerator
+Vision processing unit (VPU)
+Vector processor
+Barrel processor
+Stream processor
+Digital signal processor (DSP)
+I/O processor/DMA controller
+Network processor
+Baseband processor
+Physics processing unit (PPU)
+Coprocessor
+Secure cryptoprocessor
+ASIC
+FPGA
+FPOA
+CPLD
+Microcontroller
+Microprocessor
+Mobile processor
+Notebook processor
+Ultra-low-voltage processor
+Multi-core processor
+Manycore processor
+Tile processor
+Multi-chip module (MCM)
+Chip stack multi-chip modules
+System on a chip (SoC)
+Multiprocessor system-on-chip (MPSoC)
+Programmable System-on-Chip (PSoC)
+Network on a chip (NoC)
+
+
+
+
+
+Components
+
+
+
+Execution unit (EU)
+Arithmetic logic unit (ALU)
+Address generation unit (AGU)
+Floating-point unit (FPU)
+Load-store unit (LSU)
+Branch predictor
+Unified Reservation Station
+Barrel shifter
+Uncore
+Sum addressed decoder (SAD)
+Front-side bus
+Back-side bus
+Northbridge (computing)
+Southbridge (computing)
+Adder (electronics)
+Binary multiplier
+Binary decoder
+Address decoder
+Multiplexer
+Demultiplexer
+Registers
+Cache
+Memory management unit (MMU)
+Input–output memory management unit (IOMMU)
+Integrated Memory Controller (IMC)
+Power Management Unit (PMU)
+Translation lookaside buffer (TLB)
+Stack engine
+Register file
+Processor register
+Hardware register
+Memory buffer register (MBR)
+Program counter
+Microcode ROM
+Datapath
+Control unit
+Instruction unit
+Re-order buffer
+Data buffer
+Write buffer
+Coprocessor
+Electronic switch
+Electronic circuit
+Integrated circuit
+Three-dimensional integrated circuit
+Boolean circuit
+Digital circuit
+Analog circuit
+Mixed-signal integrated circuit
+Power management integrated circuit
+Quantum circuit
+Logic gate
+
+Combinational logic
+Sequential logic
+Emitter-coupled logic (ECL)
+Transistor–transistor logic (TTL)
+Glue logic
+
+
+Quantum gate
+Gate array
+Counter (digital)
+Bus (computing)
+Semiconductor device
+Clock rate
+CPU multiplier
+Vision chip
+Memristor
+
+
+
+
+
+Power
+management
+
+
+
+APM
+ACPI
+Dynamic frequency scaling
+Dynamic voltage scaling
+Clock gating
+
+
+
+
+
+Hardware
+security
+
+
+
+Non-executable memory (NX bit)
+Memory Protection Extensions (Intel MPX)
+Intel Secure Key
+Hardware restriction (firmware)
+Software Guard Extensions (Intel SGX)
+Trusted Execution Technology
+Trusted Platform Module (TPM)
+Secure cryptoprocessor
+Hardware security module
+Hengzhi chip
+
+
+
+
+
+Related
+
+
+
+History of general-purpose CPUs
+
+
+
+
+
+
+
+
+^ a b c d e f Supnik 2008.
+
+
+
+
+
+
+ 
+						Retrieved from "https://en.wikipedia.org/w/index.php?title=DEC_Prism&oldid=771117402"					
+Categories: DEC microprocessorsInstruction set architecturesInformation technology projectsHidden categories: All articles lacking reliable referencesArticles lacking reliable references from August 2012 
+
+
+
+Navigation menu
+
+
+Personal tools
+
+Not logged inTalkContributionsCreate accountLog in 
+
+
+
+Namespaces
+
+ArticleTalk 
+
+
+
+Variants
+
+
+
+
+
+
+
+
+
+Views
+
+ReadEditView history 
+
+
+More
+
+
+
+
+
+
+
+Search
+
+
+
+ 
+
+
+
+
+
+
+
+Navigation
+
+
+Main pageContentsFeatured contentCurrent eventsRandom articleDonate to WikipediaWikipedia store 
+
+
+
+Interaction
+
+
+HelpAbout WikipediaCommunity portalRecent changesContact page 
+
+
+
+Tools
+
+
+What links hereRelated changesUpload fileSpecial pagesPermanent linkPage informationWikidata itemCite this page 
+
+
+
+Print/export
+
+
+Create a bookDownload as PDFPrintable version 
+
+
+
+Languages
+
+
+Bahasa IndonesiaItalianoMagyar 
+Edit links 
+
+
+
+
+
+ This page was last edited on 19 March 2017, at 17:19.
+Text is available under the Creative Commons Attribution-ShareAlike License;
+additional terms may apply.  By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+
+
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Developers
+Cookie statement
+Mobile view
+
+
+
+ 
+
+ 
+
+
+
+(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.164","walltime":"0.221","ppvisitednodes":{"value":516,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":62312,"limit":2097152},"templateargumentsize":{"value":539,"limit":2097152},"expansiondepth":{"value":11,"limit":40},"expensivefunctioncount":{"value":1,"limit":500},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  153.093      1 -total"," 25.68%   39.319      1 Template:Better_source"," 25.09%   38.414      1 Template:Cite_web"," 22.53%   34.492      1 Template:Fix"," 19.00%   29.085      1 Template:Distinguish"," 15.32%   23.460      3 Template:Navbox"," 13.86%   21.221      1 Template:Category_handler"," 10.42%   15.952      6 Template:Sfn","  9.90%   15.157      1 Template:DEC_microprocessors","  6.86%   10.498      1 Template:Delink"]},"scribunto":{"limitreport-timeusage":{"value":"0.070","limit":"10.000"},"limitreport-memusage":{"value":2453182,"limit":52428800}},"cachereport":{"origin":"mw1327","timestamp":"20180212043514","ttl":1900800,"transientcontent":false}}});});(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":83,"wgHostname":"mw1240"});});
+
+

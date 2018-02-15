@@ -1,0 +1,1975 @@
+
+
+
+
+CORDIC - Wikipedia
+document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );
+(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"CORDIC","wgTitle":"CORDIC","wgCurRevisionId":823977004,"wgRevisionId":823977004,"wgArticleId":859590,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 uses Russian-language script (ru)","CS1 Russian-language sources (ru)","CS1 German-language sources (de)","Digit-by-digit algorithms","Shift-and-add algorithms","Root-finding algorithms","Computer arithmetic","Numerical analysis","Trigonometry"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"CORDIC","wgRelevantArticleId":859590,"wgRequestId":"Wn@eCwpAMFgAABpfMswAAACH","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{}},"wgStableRevisionId":null,"wgWikiEditorEnabledModules":[],"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsShouldSendModuleToUser":true,"wgPopupsConflictsWithNavPopupGadget":false,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"en","wgMFExpandAllSectionsUserOption":false,"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgWikibaseItemId":"Q116076","wgScoreNoteLanguages":{"arabic":"العربية","catalan":"català","deutsch":"Deutsch","english":"English","espanol":"español","italiano":"italiano","nederlands":"Nederlands","norsk":"norsk","portugues":"português","suomi":"suomi","svenska":"svenska","vlaams":"West-Vlams"},"wgScoreDefaultNoteLanguage":"nederlands","wgCentralAuthMobileDomain":false,"wgCodeMirrorEnabled":false,"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":true});mw.loader.state({"ext.gadget.charinsert-styles":"ready","ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","ext.pygments":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready"});mw.loader.implement("user.tokens@1dqfd7l",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});mw.loader.load(["ext.cite.a11y","ext.math.scripts","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.watchlist-notice","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.interface","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"]);});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+CORDIC 
+From Wikipedia, the free encyclopedia 
+
+					Jump to:					navigation, 					search
+
+
+
+
+Trigonometry
+
+
+
+
+
+
+
+Outline
+History
+Usage
+
+
+Functions (inverse)
+Generalized trigonometry
+
+
+
+
+Reference
+
+
+
+
+Identities
+Exact constants
+Tables
+Unit circle
+
+
+
+
+Laws and theorems
+
+
+
+
+Sines
+Cosines
+Tangents
+Cotangents
+
+
+Pythagorean theorem
+
+
+
+
+Calculus
+
+
+
+
+Trigonometric substitution
+Integrals (inverse functions)
+Derivatives
+
+
+
+
+
+
+
+v
+t
+e
+
+
+
+
+
+CORDIC (for COordinate Rotation DIgital Computer),[1][2][3] also known as Volder's algorithm, is a simple and efficient algorithm to calculate hyperbolic and trigonometric functions, typically converging with one digit (or bit) per iteration. It is therefore also a prominent example of digit-by-digit algorithms. CORDIC and closely related methods known as pseudo-multiplication and pseudo-division or factor combining are commonly used when no hardware multiplier is available (e.g. in simple microcontrollers and FPGAs), as the only operations it requires are addition, subtraction, bitshift and table lookup. As such, they belong to the class of shift-and-add algorithms.
+
+
+
+Contents
+
+
+1 History
+2 Applications
+
+2.1 Hardware
+2.2 Software
+
+
+3 Modes of operation
+
+3.1 Rotation mode
+3.2 Vectoring mode
+
+
+4 Implementation
+
+4.1 Software example
+4.2 Hardware example
+
+
+5 Related algorithms
+6 See also
+7 References
+8 Further reading
+9 External links
+
+
+
+History[edit]
+Similar mathematical techniques were published by Henry Briggs as early as 1624[4][5] or Robert Flower in 1771,[6] but CORDIC is optimized for low-complexity finite-state CPUs.
+CORDIC was conceived in 1956[7][8] by Jack E. Volder at the aeroelectronics department of Convair out of necessity to replace the analog resolver in the B-58 bomber's navigation computer by a more accurate and performant real-time digital solution.[8] Therefore, CORDIC is sometimes referred to as digital resolver.[9][10]
+In his research Volder was inspired by a formula in the 1946 edition of the CRC Handbook of Chemistry and Physics:
+
+
+
+
+
+
+
+
+
+
+
+K
+
+n
+
+
+R
+sin
+⁡
+(
+θ
+±
+φ
+)
+=
+R
+sin
+⁡
+(
+θ
+)
+±
+
+2
+
+−
+n
+
+
+R
+cos
+⁡
+(
+θ
+)
+
+
+
+
+
+
+K
+
+n
+
+
+R
+cos
+⁡
+(
+θ
+±
+φ
+)
+=
+R
+cos
+⁡
+(
+θ
+)
+∓
+
+2
+
+−
+n
+
+
+R
+sin
+⁡
+(
+θ
+)
+
+
+
+
+
+with 
+
+
+
+
+K
+
+n
+
+
+=
+
+
+1
++
+
+2
+
+−
+2
+n
+
+
+
+
+,
+
+tan
+⁡
+(
+φ
+)
+=
+
+2
+
+−
+n
+
+
+.
+
+
+
+
+
+
+{\displaystyle {\begin{aligned}&K_{n}R\sin(\theta \pm \varphi )=R\sin(\theta )\pm 2^{-n}R\cos(\theta )\\&K_{n}R\cos(\theta \pm \varphi )=R\cos(\theta )\mp 2^{-n}R\sin(\theta )\\{\text{with }}&K_{n}={\sqrt {1+2^{-2n}}},\quad \tan(\varphi )=2^{-n}.\end{aligned}}}
+
+[8]
+
+His research led to an internal technical report proposing the CORDIC algorithm to solve sine and cosine functions and a prototypical computer implementing it.[7][8] The report also discussed the possibility to compute hyperbolic coordinate rotation, logarithms and exponential functions with modified CORDIC algorithms.[7][8] Utilizing CORDIC for multiplication and division was also conceived at this time.[8] Based on the CORDIC principle, Dan H. Daggett, a colleague of Volder at Convair, developed conversion algorithms between binary and binary-coded decimal (BCD).[8][11]
+In 1958, Convair finally started to build a demonstration system to solve radar fix-taking problems named CORDIC I, completed in 1960 without Volder, who had left the company already.[1][8] More universal CORDIC II models A (stationary) and B (airborne) were built and tested by Daggett and Harry Schuss in 1962.[8][12]
+Volder's CORDIC algorithm was first described in public in 1959,[1][2][8][10][13] which caused it to be incorporated into navigation computers by companies including Martin-Orlando, Computer Control, Litton, Kearfott, Lear-Siegler, Sperry, Raytheon, and Collins Radio soon.[8]
+Volder teamed up with Malcolm MacMillan to build Athena, a fixed-point desktop calculator utilizing his binary CORDIC algorithm.[14] The design was introduced to Hewlett-Packard in June 1965, but not accepted.[14] Still, MacMillan introduced David S. Cochran (HP) to Volder's algorithm and when Cochran later met Volder he referred him to a similar approach John E. Meggitt (IBM[15]) had proposed as pseudo-multiplication and pseudo-division in 1961.[15][16] Meggitt's method was also suggesting the use of base 10[15] rather than base 2, as used by Volder's CORDIC so far. These efforts led to the ROMable logic implementation of a decimal CORDIC prototype machine inside of Hewlett-Packard in 1966,[17][16] build by and conceptually derived from Thomas E. Osborne's prototypical Green Machine, a four-function, floating-point desktop calculator he had completed in DTL logic[14] in December 1964.[18] This project resulted in the public demonstration of Hewlett-Packard's first desktop calculator with scientific functions, the hp 9100A in March 1968, with series production starting later that year.[14][18][19][20]
+When Wang Laboratories found that the hp 9100A used an approach similar to the factor combining method in their earlier LOCI-1[21] (September 1964) and LOCI-2 (January 1965)[22] Logarithmic Computing Instrument desktop calculators,[23] they unsuccessfully accused Hewlett-Packard of infringement of one of An Wang's patents in 1968.[16][24][25][26]
+John Stephen Walther at Hewlett-Packard generalized the algorithm into the Unified CORDIC algorithm in 1971, allowing it to calculate hyperbolic and exponential functions, logarithms, multiplications, divisions, and square roots.[3][27][28][29] The CORDIC subroutines for trigonometric and hyperbolic functions could share most of their code.[24] This development resulted in the first scientific handheld calculator, the HP-35 in 1972.[24][30][31][32][33][34]
+Originally, CORDIC was implemented only using the binary numeral system and despite Meggitt suggesting the use of the decimal system for his pseudo-multiplication approach, decimal CORDIC continued to remain mostly unheard of for several more years, so that Hermann Schmid and Anthony Bogacki still suggested it as a novelty as late as 1973[13][10][35][36][37] and it was found only later that Hewlett-Packard had implemented it in 1966 already.[8][10][17][24]
+Decimal CORDIC became widely used in pocket calculators,[10] most of which operate in binary-coded decimal (BCD) rather than binary. This change in the input and output format did not alter CORDIC's core calculation algorithms. CORDIC is particularly well-suited for handheld calculators, in which low cost – and thus low chip gate count – is much more important than speed.
+CORDIC has been implemented in the Intel 8087,[37][38][39][40][41] 80287,[41][42] 80387[41][42] up to the 80486[37] coprocessor series as well as in the Motorola 68881[37][38] and 68882 for some kinds of floating-point instructions, mainly as a way to reduce the gate counts (and complexity) of the FPU sub-system.
+Applications[edit]
+CORDIC uses simple shift-add operations for several computing tasks such as the calculation of trigonometric, hyperbolic and logarithmic functions, real and complex multiplications, division, square-root calculation, solution of linear systems, eigenvalue estimation, singular value decomposition, QR factorization and many others. As a consequence, CORDIC has been used for applications in diverse areas such as signal and image processing, communication systems, robotics and 3D graphics apart from general scientific and technical computation.[43][44]
+Hardware[edit]
+CORDIC is generally faster than other approaches when a hardware multiplier is not available (e.g., a microcontroller), or when the number of gates required to implement the functions it supports should be minimized (e.g., in an FPGA or ASIC).
+On the other hand, when a hardware multiplier is available (e.g., in a DSP microprocessor), table-lookup methods and power series are generally faster than CORDIC. In recent years, the CORDIC algorithm has been used extensively for various biomedical applications, especially in FPGA implementations.
+Software[edit]
+Many older systems with integer-only CPUs have implemented CORDIC to varying extents as part of their IEEE floating-point libraries. As most modern general-purpose CPUs have floating-point registers with common operations such as add, subtract, multiply, divide, sine, cosine, square root, log10, natural log, the need to implement CORDIC in them with software is nearly non-existent. Only microcontroller or special safety and time-constrained software applications would need to consider using CORDIC.
+Modes of operation[edit]
+ Rotation mode[edit]
+CORDIC can be used to calculate a number of different functions. This explanation shows how to use CORDIC in rotation mode to calculate the sine and cosine of an angle, and assumes the desired angle is given in radians and represented in a fixed-point format. To determine the sine or cosine for an angle 
+
+
+
+β
+
+
+{\displaystyle \beta }
+
+, the y or x coordinate of a point on the unit circle corresponding to the desired angle must be found. Using CORDIC, one would start with the vector 
+
+
+
+
+v
+
+0
+
+
+
+
+{\displaystyle v_{0}}
+
+:
+
+
+
+
+
+
+v
+
+0
+
+
+=
+
+
+[
+
+
+
+1
+
+
+
+
+0
+
+
+
+]
+
+
+
+
+{\displaystyle v_{0}={\begin{bmatrix}1\\0\end{bmatrix}}}
+
+
+
+
+
+
+
+An illustration of the CORDIC algorithm in progress.
+
+
+In the first iteration, this vector is rotated 45° counterclockwise to get the vector 
+
+
+
+
+v
+
+1
+
+
+
+
+{\displaystyle v_{1}}
+
+. Successive iterations rotate the vector in one or the other direction by size-decreasing steps, until the desired angle has been achieved. Step 
+
+
+
+i
+
+
+{\displaystyle i}
+
+ size is 
+
+
+
+arctan
+⁡
+
+(
+
+2
+
+−
+i
+
+
+)
+
+
+
+{\displaystyle \arctan {(2^{-i})}}
+
+ for 
+
+
+
+i
+=
+0
+,
+1
+,
+2
+,
+.
+.
+.
+
+
+{\displaystyle i=0,1,2,...}
+
+.
+More formally, every iteration calculates a rotation, which is performed by multiplying the vector 
+
+
+
+
+v
+
+i
+−
+1
+
+
+
+
+{\displaystyle v_{i-1}}
+
+ with the rotation matrix 
+
+
+
+
+R
+
+i
+
+
+
+
+{\displaystyle R_{i}}
+
+:
+
+
+
+
+
+
+v
+
+i
+
+
+=
+
+R
+
+i
+
+
+
+v
+
+i
+−
+1
+
+
+
+
+{\displaystyle v_{i}=R_{i}v_{i-1}}
+
+
+
+The rotation matrix is given by:
+
+
+
+
+
+
+R
+
+i
+
+
+=
+
+
+[
+
+
+
+cos
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+−
+sin
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+
+sin
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+cos
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+]
+
+
+
+
+{\displaystyle R_{i}={\begin{bmatrix}\cos(\gamma _{i})&-\sin(\gamma _{i})\\\sin(\gamma _{i})&\cos(\gamma _{i})\end{bmatrix}}}
+
+
+
+Using the following two trigonometric identities:
+
+
+
+
+
+
+
+
+
+cos
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+=
+
+
+1
+
+
+1
++
+
+tan
+
+2
+
+
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+
+
+
+
+
+sin
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+=
+
+
+
+tan
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+1
++
+
+tan
+
+2
+
+
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+
+
+
+
+
+
+
+{\displaystyle {\begin{aligned}\cos(\gamma _{i})&={1 \over {\sqrt {1+\tan ^{2}(\gamma _{i})}}}\\\sin(\gamma _{i})&={{\tan(\gamma _{i})} \over {\sqrt {1+\tan ^{2}(\gamma _{i})}}}\end{aligned}}}
+
+
+
+the rotation matrix becomes:
+
+
+
+
+
+
+R
+
+i
+
+
+=
+
+
+1
+
+
+1
++
+
+tan
+
+2
+
+
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+
+
+
+[
+
+
+
+1
+
+
+−
+tan
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+
+tan
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+1
+
+
+
+]
+
+
+
+
+{\displaystyle R_{i}={1 \over {\sqrt {1+\tan ^{2}(\gamma _{i})}}}{\begin{bmatrix}1&-\tan(\gamma _{i})\\\tan(\gamma _{i})&1\end{bmatrix}}}
+
+
+
+The expression for the rotated vector 
+
+
+
+
+v
+
+i
+
+
+=
+
+R
+
+i
+
+
+
+v
+
+i
+−
+1
+
+
+
+
+{\displaystyle v_{i}=R_{i}v_{i-1}}
+
+ then becomes:
+
+
+
+
+
+
+v
+
+i
+
+
+=
+
+
+1
+
+
+1
++
+
+tan
+
+2
+
+
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+
+
+
+[
+
+
+
+1
+
+
+−
+tan
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+
+
+tan
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+1
+
+
+
+]
+
+
+
+
+[
+
+
+
+
+x
+
+i
+−
+1
+
+
+
+
+
+
+
+y
+
+i
+−
+1
+
+
+
+
+
+]
+
+
+
+
+{\displaystyle v_{i}={1 \over {\sqrt {1+\tan ^{2}(\gamma _{i})}}}{\begin{bmatrix}1&-\tan(\gamma _{i})\\\tan(\gamma _{i})&1\end{bmatrix}}{\begin{bmatrix}x_{i-1}\\y_{i-1}\end{bmatrix}}}
+
+
+
+where 
+
+
+
+
+x
+
+i
+−
+1
+
+
+
+
+{\displaystyle x_{i-1}}
+
+ and 
+
+
+
+
+y
+
+i
+−
+1
+
+
+
+
+{\displaystyle y_{i-1}}
+
+ are the components of 
+
+
+
+
+v
+
+i
+−
+1
+
+
+
+
+{\displaystyle v_{i-1}}
+
+. Restricting the angles 
+
+
+
+
+γ
+
+i
+
+
+
+
+{\displaystyle \gamma _{i}}
+
+ so that 
+
+
+
+tan
+⁡
+(
+
+γ
+
+i
+
+
+)
+
+
+{\displaystyle \tan(\gamma _{i})}
+
+ takes on the values 
+
+
+
+±
+
+2
+
+−
+i
+
+
+
+
+{\displaystyle \pm 2^{-i}}
+
+, the multiplication with the tangent can be replaced by a division by a power of two, which is efficiently done in digital computer hardware using a bit shift. The expression then becomes:
+
+
+
+
+
+
+v
+
+i
+
+
+=
+
+K
+
+i
+
+
+
+
+[
+
+
+
+1
+
+
+−
+
+σ
+
+i
+
+
+
+2
+
+−
+i
+
+
+
+
+
+
+
+σ
+
+i
+
+
+
+2
+
+−
+i
+
+
+
+
+1
+
+
+
+]
+
+
+
+
+[
+
+
+
+
+x
+
+i
+−
+1
+
+
+
+
+
+
+
+y
+
+i
+−
+1
+
+
+
+
+
+]
+
+
+
+
+{\displaystyle v_{i}=K_{i}{\begin{bmatrix}1&-\sigma _{i}2^{-i}\\\sigma _{i}2^{-i}&1\end{bmatrix}}{\begin{bmatrix}x_{i-1}\\y_{i-1}\end{bmatrix}}}
+
+
+
+where
+
+
+
+
+
+
+K
+
+i
+
+
+=
+
+
+1
+
+
+1
++
+
+2
+
+−
+2
+i
+
+
+
+
+
+
+
+
+{\displaystyle K_{i}={1 \over {\sqrt {1+2^{-2i}}}}}
+
+
+
+and 
+
+
+
+
+σ
+
+i
+
+
+
+
+{\displaystyle \sigma _{i}}
+
+ can have the values of −1 or 1, and is used to determine the direction of the rotation; if the angle 
+
+
+
+
+γ
+
+i
+
+
+
+
+{\displaystyle \gamma _{i}}
+
+ is positive then 
+
+
+
+
+σ
+
+i
+
+
+
+
+{\displaystyle \sigma _{i}}
+
+ is +1, otherwise it is −1.
+
+
+
+
+
+K
+
+i
+
+
+
+
+{\displaystyle K_{i}}
+
+ can be ignored in the iterative process and then applied afterward with a scaling factor:
+
+
+
+
+
+K
+(
+n
+)
+=
+
+∏
+
+i
+=
+0
+
+
+n
+−
+1
+
+
+
+K
+
+i
+
+
+=
+
+∏
+
+i
+=
+0
+
+
+n
+−
+1
+
+
+
+
+1
+
+
+1
++
+
+2
+
+−
+2
+i
+
+
+
+
+
+
+
+
+{\displaystyle K(n)=\prod _{i=0}^{n-1}K_{i}=\prod _{i=0}^{n-1}{1 \over {\sqrt {1+2^{-2i}}}}}
+
+
+
+which is calculated in advance and stored in a table, or as a single constant if the number of iterations is fixed. This correction could also be made in advance, by scaling 
+
+
+
+
+v
+
+0
+
+
+
+
+{\displaystyle v_{0}}
+
+ and hence saving a multiplication. Additionally it can be noted that:
+
+
+
+
+
+K
+=
+
+lim
+
+n
+→
+∞
+
+
+K
+(
+n
+)
+≈
+0.6072529350088812561694
+
+
+{\displaystyle K=\lim _{n\to \infty }K(n)\approx 0.6072529350088812561694}
+
+[37]
+
+to allow further reduction of the algorithm's complexity. Some applications may avoid correcting for 
+
+
+
+K
+
+
+{\displaystyle K}
+
+ altogether, resulting in a processing gain 
+
+
+
+A
+
+
+{\displaystyle A}
+
+:
+
+
+
+
+
+A
+=
+
+
+1
+K
+
+
+=
+
+lim
+
+n
+→
+∞
+
+
+
+∏
+
+i
+=
+0
+
+
+n
+−
+1
+
+
+
+
+1
++
+
+2
+
+−
+2
+i
+
+
+
+
+≈
+1.64676025812107
+
+
+{\displaystyle A={1 \over K}=\lim _{n\to \infty }\prod _{i=0}^{n-1}{\sqrt {1+2^{-2i}}}\approx 1.64676025812107}
+
+[45]
+
+After a sufficient number of iterations, the vector's angle will be close to the wanted angle 
+
+
+
+β
+
+
+{\displaystyle \beta }
+
+. For most ordinary purposes, 40 iterations (n = 40) is sufficient to obtain the correct result to the 10th decimal place.
+The only task left is to determine if the rotation should be clockwise or counterclockwise at each iteration (choosing the value of 
+
+
+
+σ
+
+
+{\displaystyle \sigma }
+
+). This is done by keeping track of how much the angle was rotated at each iteration and subtracting that from the wanted angle; then in order to get closer to the wanted angle 
+
+
+
+β
+
+
+{\displaystyle \beta }
+
+, if 
+
+
+
+
+β
+
+n
++
+1
+
+
+
+
+{\displaystyle \beta _{n+1}}
+
+ is positive, the rotation is clockwise, otherwise it is negative and the rotation is counterclockwise.
+
+
+
+
+
+
+β
+
+i
+
+
+=
+
+β
+
+i
+−
+1
+
+
+−
+
+σ
+
+i
+
+
+
+γ
+
+i
+
+
+.
+
+
+γ
+
+i
+
+
+=
+arctan
+⁡
+(
+
+2
+
+−
+i
+
+
+)
+,
+
+
+{\displaystyle \beta _{i}=\beta _{i-1}-\sigma _{i}\gamma _{i}.\quad \gamma _{i}=\arctan(2^{-i}),}
+
+
+
+The values of 
+
+
+
+
+γ
+
+n
+
+
+
+
+{\displaystyle \gamma _{n}}
+
+ must also be precomputed and stored. But for small angles, 
+
+
+
+arctan
+⁡
+(
+
+γ
+
+n
+
+
+)
+=
+
+γ
+
+n
+
+
+
+
+{\displaystyle \arctan(\gamma _{n})=\gamma _{n}}
+
+ in fixed-point representation, reducing table size.
+As can be seen in the illustration above, the sine of the angle 
+
+
+
+β
+
+
+{\displaystyle \beta }
+
+ is the y coordinate of the final vector 
+
+
+
+
+v
+
+n
+
+
+
+
+{\displaystyle v_{n}}
+
+, while the x coordinate is the cosine value.
+ Vectoring mode[edit]
+The rotation-mode algorithm described above can rotate any vector (not only a unit vector aligned along the x axis) by an angle between –90° and +90°. Decisions on the direction of the rotation depend on 
+
+
+
+
+β
+
+i
+
+
+
+
+{\displaystyle \beta _{i}}
+
+ being positive or negative.
+The vectoring-mode of operation requires a slight modification of the algorithm. It starts with a vector the x coordinate of which is positive and the y coordinate is arbitrary. Successive rotations have the goal of rotating the vector to the x axis (and therefore reducing the y coordinate to zero). At each step, the value of y determines the direction of the rotation. The final value of 
+
+
+
+
+β
+
+i
+
+
+
+
+{\displaystyle \beta _{i}}
+
+ contains the total angle of rotation. The final value of x will be the magnitude of the original vector scaled by K. So, an obvious use of the vectoring mode is the transformation from rectangular to polar coordinates.
+Implementation[edit]
+Software example[edit]
+The following is a MATLAB/GNU Octave implementation of CORDIC that does not rely on any transcendental functions except in the precomputation of tables. If the number of iterations n is predetermined, then the second table can be replaced by a single constant. With MATLAB's standard double-precision arithmetic and "format long" printout, the results increase in accuracy for n up to about 48.
+
+
+function v = cordic(beta,n)
+% This function computes v = [cos(beta), sin(beta)] (beta in radians)
+% using n iterations. Increasing n will increase the precision.
+
+if beta < -pi/2 || beta > pi/2
+    if beta < 0
+        v = cordic(beta + pi, n);
+    else
+        v = cordic(beta - pi, n);
+    end
+    v = -v; % flip the sign for second or third quadrant
+    return
+end
+
+% Initialization of tables of constants used by CORDIC
+% need a table of arctangents of negative powers of two, in radians:
+% angles = atan(2.^-(0:27));
+angles =  [  ...
+    0.78539816339745   0.46364760900081   0.24497866312686   0.12435499454676 ...
+    0.06241880999596   0.03123983343027   0.01562372862048   0.00781234106010 ...
+    0.00390623013197   0.00195312251648   0.00097656218956   0.00048828121119 ...
+    0.00024414062015   0.00012207031189   0.00006103515617   0.00003051757812 ...
+    0.00001525878906   0.00000762939453   0.00000381469727   0.00000190734863 ...
+    0.00000095367432   0.00000047683716   0.00000023841858   0.00000011920929 ...
+    0.00000005960464   0.00000002980232   0.00000001490116   0.00000000745058 ];
+% and a table of products of reciprocal lengths of vectors [1, 2^-2j]:
+% Kvalues = cumprod(1./abs(1 + 1j*2.^(-(0:23))))
+Kvalues = [ ...
+    0.70710678118655   0.63245553203368   0.61357199107790   0.60883391251775 ...
+    0.60764825625617   0.60735177014130   0.60727764409353   0.60725911229889 ...
+    0.60725447933256   0.60725332108988   0.60725303152913   0.60725295913894 ...
+    0.60725294104140   0.60725293651701   0.60725293538591   0.60725293510314 ...
+    0.60725293503245   0.60725293501477   0.60725293501035   0.60725293500925 ...
+    0.60725293500897   0.60725293500890   0.60725293500889   0.60725293500888 ];
+Kn = Kvalues(min(n, length(Kvalues)));
+
+% Initialize loop variables:
+v = [1;0]; % start with 2-vector cosine and sine of zero
+poweroftwo = 1;
+angle = angles(1);
+
+% Iterations
+for j = 0:n-1;
+    if beta < 0
+        sigma = -1;
+    else
+        sigma = 1;
+    end
+    factor = sigma * poweroftwo;
+    % Note the matrix multiplication can be done using scaling by powers of two and addition subtraction
+    R = [1, -factor; factor, 1];
+    v = R * v; % 2-by-2 matrix multiply
+    beta = beta - sigma * angle; % update the remaining angle
+    poweroftwo = poweroftwo / 2;
+    % update the angle from table, or eventually by just dividing by two
+    if j+2 > length(angles)
+        angle = angle / 2;
+    else
+        angle = angles(j+2);
+    end
+end
+
+% Adjust length of output vector to be [cos(beta), sin(beta)]:
+v = v * Kn;
+return
+
+endfunction
+
+The two-by-two matrix multiplication can be carried out by a pair of simple shifts and adds.
+
+
+    x = v[0] - sigma * (v[1] * 2^(-j));
+    y = sigma * (v[0] * 2^(-j)) + v[1];
+    v = [x; y];
+
+In Java the Math class has a scalb(double x,int scale) method to perform such a shift[46] and the x86 class of processors have the fscale floating point operation.[47]
+Hardware example[edit]
+The number of logic gates for the implementation of a CORDIC is roughly comparable to the number required for a multiplier as both require combinations of shifts and additions. The choice for a multiplier-based or CORDIC-based implementation will depend on the context. The multiplication of two complex numbers represented by their real and imaginary components (rectangular coordinates), for example, requires 4 multiplications, but could be realized by a single CORDIC operating on complex numbers represented by their polar coordinates, especially if the magnitude of the numbers is not relevant (multiplying a complex vector with a vector on the unit circle actually amounts to a rotation). CORDICs are often used in circuits for telecommunications such as digital down converters.
+Related algorithms[edit]
+CORDIC is part of the class of "shift-and-add" algorithms, as are the logarithm and exponential algorithms derived from Henry Briggs' work. Another shift-and-add algorithm which can be used for computing many elementary functions is the BKM algorithm, which is a generalization of the logarithm and exponential algorithms to the complex plane. For instance, BKM can be used to compute the sine and cosine of a real angle 
+
+
+
+x
+
+
+{\displaystyle x}
+
+ (in radians) by computing the exponential of 
+
+
+
+0
++
+i
+x
+
+
+{\displaystyle 0+ix}
+
+, which is 
+
+
+
+cis
+⁡
+(
+x
+)
+=
+cos
+⁡
+(
+x
+)
++
+i
+sin
+⁡
+(
+x
+)
+
+
+{\displaystyle \operatorname {cis} (x)=\cos(x)+i\sin(x)}
+
+. The BKM algorithm is slightly more complex than CORDIC, but has the advantage that it does not need a scaling factor (K).
+See also[edit]
+
+Methods of computing square roots
+
+References[edit]
+
+
+^ a b c Volder, Jack E. (1959-03-03). "The CORDIC Computing Technique" (PDF). Proceedings of the Western Joint Computer Conference (WJCC) (presentation). San Francisco, California, USA: National Joint Computer Committee (NJCC): 257–261. Retrieved 2016-01-02. 
+^ a b Volder, Jack E. (1959-05-25). "The CORDIC Trigonometric Computing Technique" (PDF). IRE Transactions on Electronic Computers. The Institute of Radio Engineers, Inc. (IRE) (published September 1959). 8 (3): 330–334 (reprint: 226–230). EC-8(3):330–334. Retrieved 2016-01-01. 
+^ a b Swartzlander, Jr., Earl E. (1990). Computer Arithmetic. 1 (2 ed.). Los Alamitos: IEEE Computer Society Press. ISBN 9780818689314. 0818689315. Retrieved 2016-01-02. 
+^ Briggs, Henry (1624). Arithmetica Logarithmica. London.  (Translation: [1])
+^ Laporte, Jacques (2014) [2005]. "Henry Briggs and the HP 35". Paris, France. Archived from the original on 2015-03-09. Retrieved 2016-01-02.  [2]
+^ Flower, Robert (1771). The Radix. A new way of making logarithms. London: J. Beecroft. Retrieved 2016-01-02. 
+^ a b c Volder, Jack E. (1956-06-15), Binary Computation Algorithms for Coordinate Rotation and Function Generation (internal report), Convair, Aeroelectronics group, IAR-1.148 
+^ a b c d e f g h i j k l Volder, Jack E. (June 2000). "The Birth of CORDIC" (PDF). Journal of VLSI Signal Processing. Hingham, MA, USA: Kluwer Academic Publishers. 25 (2): 101–105. ISSN 0922-5773. Retrieved 2016-01-02.  ([3])
+^ Perle, Michael D. (June 1971), "CORDIC Technique Reduces Trigonometric Function Look-Up", Computer Design, Boston, MA, USA: Computer Design Publishing Corp.: 72–78  (NB. Some sources erroneously refer to this as by P. Z. Perle or in Component Design.)
+^ a b c d e Schmid, Hermann (1983) [1974]. Decimal Computation (1 (reprint) ed.). Malabar, Florida, USA: Robert E. Krieger Publishing Company. pp. 162, 165–176, 181–193. ISBN 0-89874-318-4. Retrieved 2016-01-03.  (NB. At least some batches of this reprint edition were misprints with defective pages 115–146.)
+^ Daggett, Dan H. (September 1959). "Decimal-Binary Conversions in CORDIC". IRE Transactions on Electronic Computers. The Institute of Radio Engineers, Inc. (IRE). 8 (3): 335–339. doi:10.1109/TEC.1959.5222694. ISSN 0367-9950. EC-8(3):335-339. Retrieved 2016-01-02. 
+^ Advanced Systems Group (1962-08-06), Technical Description of Fix-taking Tie-in Equipment (report), Fort Worth, Texas, USA: General Dynamics, FZE-052 
+^ a b Schmid, Hermann (1974). Decimal Computation (1 ed.). Binghamton, New York, USA: John Wiley & Sons, Inc. pp. 162, 165–176, 181–193. ISBN 0-471-76180-X. Retrieved 2016-01-03. So far CORDIC has been known to be implemented only in binary form. But, as will be demonstrated here, the algorithm can be easily modified for a decimal system.* […] *In the meantime it has been learned that Hewlett Packard and other calculator manufacturers employ the decimal CORDIC techniques in their scientific calculators. 
+^ a b c d Leibson, Steven (2010). "The HP 9100 Project: An Exothermic Reaction". Retrieved 2016-01-02. 
+^ a b c Meggitt, John E. (1961-08-29). "Pseudo Division and Pseudo Multiplication Processes" (PDF). IBM Journal of Research and Development. Riverton, New Jersey, USA: IBM Corporation (published April 1962). 6 (2): 210–226, 287. doi:10.1147/rd.62.0210. Retrieved 2016-01-09. John E. Meggitt B.A., 1953; Ph.D., 1958, Cambridge University. Awarded the First Smith Prize at Cambridge in 1955 and elected a Research Fellowship at Emmanuel College. […] Joined IBM British Laboratory at Hursley, Winchester in 1958. Interests include error-correcting codes and small microprogrammed computers.  ([4], [5])
+^ a b c Cochran, David S. (2010-11-19). "A Quarter Century at HP" (interview typescript). Computer History Museum / HP Memories. 7: Scientific Calculators, circa 1966. CHM X5992.2011. Retrieved 2016-01-02. I even flew down to Southern California to talk with Jack Volder who had implemented the transcendental functions in the Athena machine and talked to him for about an hour. He referred me to the original papers by Meggitt where he'd gotten the pseudo division, pseudo multiplication generalized functions. […] I did quite a bit of literary research leading to some very interesting discoveries. […] I found a treatise from 1624 by Henry Briggs discussing the calculation of common logarithms, interestingly used the same pseudo-division/pseudo-multiplication method that MacMillan and Volder used in Athena. […] We had purchased a LOCI-2 from Wang Labs and recognized that Wang Labs LOCI II used the same algorithm to do square root as well as log and exponential. After the introduction of the 9100 our legal department got a letter from Wang saying that we had infringed on their patent. And I just sent a note back with the Briggs reference in Latin and it said, "It looks like prior art to me." We never heard another word.  ([6])
+^ a b Cochran, David S. (1966-03-14). "About utilizing CORDIC for computing transcendental functions in BCD" (private communication with Jack E. Volder). 
+^ a b Osborne, Thomas E. (2010) [1994]. "Tom Osborne's Story in His Own Words". Retrieved 2016-01-01. 
+^ Leibson, Steven (2010). "The HP 9100: The Initial Journey". Retrieved 2016-01-02. 
+^ Cochran, David S. (September 1968). "Internal Programming of the 9100A Calculator". Hewlett-Packard Journal. Palo Alto, California, USA: Hewlett-Packard: 14–16. Retrieved 2016-01-02.  ([7])
+^ Extend your Personal Computing Power with the new LOCI-1 Logarithmic Computing Instrument, Wang Laboratories, Inc., 1964, pp. 2–3, retrieved 2016-01-03 
+^ Bensene, Rick (2013-08-31) [1997]. "Wang LOCI-2". Old Calculator Web Museum. Beavercreek, Oregon City, Oregon, USA. Retrieved 2016-01-03. 
+^ Bensene, Rick (2004-10-23) [1997]. "Wang Model 360SE Calculator System". Old Calculator Web Museum. Beavercreek, Oregon City, Oregon, USA. Retrieved 2016-01-03. 
+^ a b c d Cochran, David S. (June 2010). "The HP-35 Design, A Case Study in Innovation". HP Memory Project. Retrieved 2016-01-02. During the development of the desktop HP 9100 calculator I was responsible for developing the algorithms to fit the architecture suggested by Tom Osborne. Although the suggested methodology for the algorithms came from Malcolm McMillan I did considerable amount of reading to understand the core calculations […] Although Wang Laboratories had used similar methods of calculation, my study found prior art dated 1624 that read on their patents. […] This research enabled the adaption of the transcendental functions through the use of the algorithms to match the needs of the customer within the constraints of the hardware. This proved invaluable during the development of the HP-35, […] Power series, polynomial expansions, continued fractions, and Chebyshev polynomials were all considered for the transcendental functions. All were too slow because of the number of multiplications and divisions required. The generalized algorithm that best suited the requirements of speed and programming efficiency for the HP-35 was an iterative pseudo-division and pseudo-multiplication method first described in 1624 by Henry Briggs in 'Arithmetica Logarithmica' and later by Volder and Meggitt. This is the same type of algorithm that was used in previous HP desktop calculators. […] The complexity of the algorithms made multilevel programming a necessity. This meant the calculator had to have subroutine capability, […] To generate a transcendental function such as Arc-Hyperbolic-Tan required several levels of subroutines. […] Chris Clare later documented this as Algorithmic State Machine (ASM) methodology. Even the simple Sine or Cosine used the Tangent routine, and then calculated the Sine from trigonometric identities. These arduous manipulations were necessary to minimize the number of unique programs and program steps […] The arithmetic instruction set was designed specifically for a decimal transcendental-function calculator. The basic arithmetic operations are performed by a 10's complement adder-subtractor which has data paths to three of the registers that are used as working storage. 
+^ US patent 3402285A, Wang, An, "Calculating apparatus", published 1968-09-17, issued 1968-09-17,  assigned to Wang Laboratories  ([8], [9])
+^ DE patent 1499281B1, Wang, An, "Rechenmaschine fuer logarithmische Rechnungen", published 1970-05-06, issued 1970-05-06,  assigned to Wang Laboratories  ([10])
+^ Walther, John Stephen (May 1971). Written at Palo Alto, California, USA. "A unified algorithm for elementary functions" (PDF). Proceedings of the Spring Joint Computer Conference (SJCC). Atlantic City, New Jersey, USA: Hewlett-Packard Company. 38: 379–385 – via American Federation of Information Processing Societies (AFIPS). 
+^ Walther, John Stephen (June 2000). "The Story of Unified CORDIC". The Journal of VLSI Signal Processing. Hingham, MA, USA: Kluwer Academic Publishers. 25 (2): 107–112. doi:10.1023/A:1008162721424. ISSN 0922-5773. 
+^ Petrocelli, Orlando R., ed. (1972), The Best Computer Papers of 1971, Auerbach Publishers, p. 71, ISBN 0877691274, retrieved 2016-01-02 
+^ Cochran, David S. (June 1972). "Algorithms and Accuracy in the HP-35" (PDF). Hewlett Packard Journal. 23 (10): 10–11. 
+^ Laporte, Jacques (2005-12-06). "HP35 trigonometric algorithm". Paris, France. Archived from the original on 2015-03-09. Retrieved 2016-01-02.  [11]
+^ Laporte, Jacques (February 2005) [1981]. "The secret of the algorithms". l’Ordinateur Individuel. Paris, France (24). Archived from the original on 2016-08-18. Retrieved 2016-01-02.  [12]
+^ Laporte, Jacques (February 2012) [2006]. "Digit by digit methods". Paris, France. Archived from the original on 2016-08-18. Retrieved 2016-01-02.  [13]
+^ Laporte, Jacques (February 2012) [2007]. "HP 35 Logarithm Algorithm". Paris, France. Archived from the original on 2016-08-18. Retrieved 2016-01-07.  [14]
+^ Schmid, Hermann; Bogacki, Anthony (1973-02-20). "Use Decimal CORDIC for Generation of Many Transcendental Functions". EDN: 64–73. 
+^ Franke, Richard (1973-05-08). An Analysis of Algorithms for Hardware Evaluation of Elementary Functions (PDF). Monterey, California, USA: Department of the Navy, Naval Postgraduate School. NPS-53FE73051A. Retrieved 2016-01-03. 
+^ a b c d e Muller, Jean-Michel (2006). Elementary Functions: Algorithms and Implementation (2 ed.). Boston: Birkhäuser. p. 134. ISBN 978-0-8176-4372-0. LCCN 2005048094. Retrieved 2015-12-01. 
+^ a b Nave, Rafi (March 1983). "Implementation of Transcendental Functions on a Numerics Processor". Microprocessing and Microprogramming. 11 (3-4): 221–225. 
+^ Palmer, John F.; Morse, Stephen Paul (1984). The 8087 Primer (1 ed.). John Wiley & Sons Australia, Limited. ISBN 0471875694. 9780471875697. Retrieved 2016-01-02. 
+^ Glass, L. Brent (January 1990). "Math Coprocessors: A look at what they do, and how they do it". Byte. 15 (1): 337–348. ISSN 0360-5280. 
+^ a b c Jarvis, Pitts (1990-10-01). "Implementing CORDIC algorithms - A single compact routine for computing transcendental functions". Dr. Dobb's Journal: 152–156. Retrieved 2016-01-02. 
+^ a b Yuen, A. K. (1988). "Intel's Floating-Point Processors". Electro/88 Conference Record: 48/5/1–7. 
+^ Meher, Pramod Kumar; Valls, Javier; Juang, Tso-Bing; Sridharan, K.; Maharatna, Koushik (2008-08-22). "50 Years of CORDIC: Algorithms, Architectures and Applications" (PDF). IEEE Transactions on Circuits & Systems-I: Regular Papers (published 2009-09-09). 56 (9): 1893–1907. Retrieved 2016-01-03. 
+^ Meher, Pramod Kumar; Park, Sang Yoon (February 2013). "CORDIC Designs for Fixed Angle of Rotation" (PDF). IEEE Transactions on VLSI Systems. 21 (2): 217–228. 
+^ Andraka, Ray (1998). "A survey of CORDIC algorithms for FPGA based computers" (PDF). ACM. North Kingstown, RI, USA: Andraka Consulting Group, Inc. 0-89791-978-5/98/01. Retrieved 2016-05-08. 
+^ "Math (Java Platform SE 8 )". docs.oracle.com. Retrieved 2016-10-11. 
+^ "Floating-Point Instructions - x86 Assembly Language Reference Manual". docs.oracle.com. Retrieved 2016-10-11. 
+
+
+Further reading[edit]
+
+Parini, J. M. (1966-09-05). "DIVIC Gives Answer to Complex Navigation Questions". Electronics: 105–111.  (NB. DIVIC stands for DIgital Variable Increments Computer.)
+Anderson, S. F.; Earle, J. G.; Goldschmidt, R. E.; Powers, D. M. (1965-11-01). "The IBM System/360 Model 91: Floating-Point Execution Unit" (PDF). IBM Journal of Research and Development. Riverton, New Jersey, USA (published January 1967). 11 (1): 34–53. doi:10.1147/rd.111.0034. Retrieved 2016-01-02. 
+Liccardo, Michael A. (September 1968), An Interconnect Processor with Emphasis on CORDIC Mode Operation (M.Sc. thesis), Berkeley, CA, USA: University of California, Berkeley, Department of Electrical Engineering 
+US patent 3576983A, Cochran, David S., "Digital calculator system for computing square roots", published 1971-05-04, issued 1971-05-04,  assigned to Hewlett-Packard Co.  ([15])
+Chen, Tien Chi (July 1972). "Automatic Computation of Exponentials, Logarithms, Ratios, and Square Roots" (PDF). IBM Journal of Research and Development. 16 (4): 380–388. doi:10.1147/rd.164.0380. ISSN 0018-8646. Retrieved 2016-01-02. 
+Egbert, William E. (May 1977). "Personal Calculator Algorithms I: Square Roots" (PDF). Hewlett-Packard Journal. Palo Alto, California, USA: Hewlett-Packard. 28 (9): 22–24. Retrieved 2016-01-02.  ([16])
+Egbert, William E. (June 1977). "Personal Calculator Algorithms II: Trigonometric Functions" (PDF). Hewlett-Packard Journal. Palo Alto, California, USA: Hewlett-Packard. 28 (10): 17–20. Retrieved 2016-01-02.  ([17])
+Egbert, William E. (November 1977). "Personal Calculator Algorithms III: Inverse Trigonometric Functions" (PDF). Hewlett-Packard Journal. Palo Alto, California, USA: Hewlett-Packard. 29 (3): 22–23. Retrieved 2016-01-02.  ([18])
+Egbert, William E. (April 1978). "Personal Calculator Algorithms IV: Logarithmic Functions" (PDF). Hewlett-Packard Journal. Palo Alto, California, USA: Hewlett-Packard. 29 (8): 29–32. Retrieved 2016-01-02.  ([19])
+Senzig, Don (1975). "Calculator Algorithms". IEEE Compcon Reader Digest. IEEE: 139–141. IEEE Catalog No. 75 CH 0920-9C. 
+Baykov, Vladimir D. (1972), Вопросы исследования вычисления элементарных функций по методу «цифра за цифрой» [Problems of elementary functions evaluation based on digit by digit (CORDIC) technique] (PhD thesis) (in Russian), Leningrad State University of Electrical Engineering 
+Baykov, Vladimir D.; Smolov, Vladimir B. (1975), Apparaturnaja realizatsija elementarnikh funktsij v CVM Аппаратурная реализация элементарных функций в ЦВМ [Hardware implementation of elementary functions in computers] (in Russian), Leningrad State University  (Full Text)
+Baykov, Vladimir D.; Seljutin, S. A. (1982), Вычисление элементарных функций в ЭКВМ [Elementary functions evaluation in microcalculators] (in Russian), Moscow: Radio i svjaz (Радио и связь) 
+Baykov, Vladimir D.; Smolov, Vladimir B. (1985), Специализированные процессоры: итерационные алгоритмы и структуры [Special-purpose processors: iterative algorithms and structures] (in Russian), Moscow: Radio i svjaz (Радио и связь) 
+Coppens, Thomas, ed. (January 1980). "CORDIC constants in TI 58/59 ROM". Texas Instruments Software Exchange Newsletter. Kapellen, Belgium: TISOFT. 2 (2). 
+Coppens, Thomas, ed. (April 1980). "Natural logarithm computation scheme / ex computing scheme / ​1⁄x computing scheme". Texas Instruments Software Exchange Newsletter. Kapellen, Belgium: TISOFT. 2 (3).  (about CORDIC in TI-58/TI-59)
+TI Graphic Products Team (1995) [1993]. "Transcendental function algorithms". Dallas, Texas, USA: Texas Instruments, Consumer Products. Retrieved 2016-01-02. 
+Jorke, Günter; Lampe, Bernhard; Wengel, Norbert (1989). Arithmetische Algorithmen der Mikrorechentechnik (in German) (1 ed.). Berlin, Germany: VEB Verlag Technik. pp. 219, 261, 271–296. ISBN 3341005153. EAN 9783341005156. MPN 5539165. License 201.370/4/89. Retrieved 2015-12-01. 
+Frerking, Marvin E. (1994). Digital Signal Processing in Communication Systems (1 ed.). 
+Kantabutra, Vitit (1996). "On hardware for computing exponential and trigonometric functions". IEEE Transactions on Computers. 45 (3): 328–339. 
+Andraka, Ray (1998). "A survey of CORDIC algorithms for FPGA based computers" (PDF). ACM. North Kingstown, RI, USA: Andraka Consulting Group, Inc. 0-89791-978-5/98/01. Retrieved 2016-01-02. 
+Banerjee, Ayan (2001), FPGA realization of a CORDIC based FFT processor for biomedical signal processing, Kharagpur, West Bengal, India, retrieved 2016-01-10 
+Kahan, William Morton (2002-05-20). "Pseudo-Division Algorithms for Floating-Point Logarithms and Exponentials" (PDF). Berkeley, CA, USA: University of California. Retrieved 2016-01-15. 
+Cockrum, Chris K. (Fall 2008), Implementation of a CORDIC Algorithm in a Digital Down-Converter (PDF) 
+Lakshmi, B.; Dhar, A. S. (2009-10-06). "CORDIC Architectures: A Survey". VLSI Design. Kharagpur, West Bengal, India: Department of Electronics and Electrical Communication Engineering, Indian Institute of Technology (published 2010-10-10). 2010. doi:10.1155/2010/794891. 794891. Retrieved 2016-01-02. 
+
+External links[edit]
+
+Wang, Shaoyun (July 2011), CORDIC Bibliography Site 
+BASIC Stamp, CORDIC math implementation
+CORDIC implementation in verilog
+CORDIC Vectoring with Arbitrary Target Value
+PicBasic Pro, Pic18 CORDIC math implementation
+Python CORDIC implementation
+Simple C code for fixed-point CORDIC
+Tutorial and MATLAB Implementation – Using CORDIC to Estimate Phase of a Complex Number
+Descriptions of hardware CORDICs in Arx with testbenches in C++ and VHDL
+An Introduction to the CORDIC algorithm
+Implementation of the CORDIC Algorithm in a Digital Down-Converter
+
+
+
+
+
+ 
+						Retrieved from "https://en.wikipedia.org/w/index.php?title=CORDIC&oldid=823977004"					
+Categories: Digit-by-digit algorithmsShift-and-add algorithmsRoot-finding algorithmsComputer arithmeticNumerical analysisTrigonometryHidden categories: CS1 uses Russian-language script (ru)CS1 Russian-language sources (ru)CS1 German-language sources (de) 
+
+
+
+Navigation menu
+
+
+Personal tools
+
+Not logged inTalkContributionsCreate accountLog in 
+
+
+
+Namespaces
+
+ArticleTalk 
+
+
+
+Variants
+
+
+
+
+
+
+
+
+
+Views
+
+ReadEditView history 
+
+
+More
+
+
+
+
+
+
+
+Search
+
+
+
+ 
+
+
+
+
+
+
+
+Navigation
+
+
+Main pageContentsFeatured contentCurrent eventsRandom articleDonate to WikipediaWikipedia store 
+
+
+
+Interaction
+
+
+HelpAbout WikipediaCommunity portalRecent changesContact page 
+
+
+
+Tools
+
+
+What links hereRelated changesUpload fileSpecial pagesPermanent linkPage informationWikidata itemCite this page 
+
+
+
+Print/export
+
+
+Create a bookDownload as PDFPrintable version 
+
+
+
+Languages
+
+
+CatalàČeštinaDeutschEspañolFrançaisPortuguêsРусскийTürkçeУкраїнська 
+Edit links 
+
+
+
+
+
+ This page was last edited on 4 February 2018, at 16:10.
+Text is available under the Creative Commons Attribution-ShareAlike License;
+additional terms may apply.  By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+
+
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Developers
+Cookie statement
+Mobile view
+
+
+
+ 
+
+ 
+
+
+
+(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.608","walltime":"0.710","ppvisitednodes":{"value":4527,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":154443,"limit":2097152},"templateargumentsize":{"value":2540,"limit":2097152},"expansiondepth":{"value":10,"limit":40},"expensivefunctioncount":{"value":0,"limit":500},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  534.813      1 -total"," 55.60%  297.338      1 Template:Reflist"," 34.43%  184.140     32 Template:Cite_journal"," 12.54%   67.067     13 Template:Citation"," 10.28%   54.954     10 Template:Cite_book","  9.23%   49.366     14 Template:Cite_web","  4.87%   26.028      8 Template:Anchor","  3.76%   20.090      3 Template:Cite_patent","  2.88%   15.412      3 Template:Citation/patent","  2.07%   11.046      1 Template:Trigonometry"]},"scribunto":{"limitreport-timeusage":{"value":"0.311","limit":"10.000"},"limitreport-memusage":{"value":3706029,"limit":52428800}},"cachereport":{"origin":"mw1319","timestamp":"20180211010921","ttl":1900800,"transientcontent":false}}});});(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":72,"wgHostname":"mw1253"});});
+
+
